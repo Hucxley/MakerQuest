@@ -1,0 +1,14 @@
+/*stylesheet to go here*/
+.menu-item-branding {
+  max-height: 40px;
+  width: 160px;
+  overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.brand-logo {
+  height: 40px;
+  width: 160px;
+  padding: 0;
+}
