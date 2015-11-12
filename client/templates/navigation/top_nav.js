@@ -11,7 +11,7 @@ Template.topNav.helpers({
 });
 
 Template.topNav.events({
-  "click .item": function(event, template) {
+  "click .left-nav": function(event, template) {
     console.log(template);
     console.log(event);
     event.preventDefault();

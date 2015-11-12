@@ -10,12 +10,13 @@ if (Archetypes.find().count() === 0) {
     firstLevelXP: 1500,
     backgroundImages: [
       '..\img\kinghtDemo.png'
-    ]
+    ],
+    classIcon: "bookmark icon"
   });
 
   Archetypes.insert({
     className: 'The Construct',
-    description: "The Construct was once the lovingly detailed work of a mortal - The Creator.\n \nHowever, The Construct was left behind after The Creator was fatally injured in a training exercise with The Construct. Some time after it was abandoned by The Creator, The Construct began to perform its own maintenance, and eventually began to make upgrades and improvements to itself. After many, many years, The Construct has found it difficult to remember much of its time with The Creator.\n \n \"Initiate data integrity protocol on module LTM-001, Unit A. /> Response code 301: Resource archived by 'Self' with header, 'The Creator'. />  Protocol forwarded to the indexed archive. /> Error 409:  Request conflicts with prioritized processes(['Self.Relocate(locationData, patternSelector)', 'Self.Discover(referenceData, patternSelector)', 'Self.Manufacture(module, materials, equippedItems)']). /> Forwarded protocol will restart when resources available. />\"",
+    description: "The Construct was once the lovingly detailed work of a mortal - The Creator.\n \nHowever, The Construct was left behind after The Creator was fatally injured in a training exercise with The Construct. Some time after it was abandoned by The Creator, The Construct began to perform its own maintenance, and eventually began to make upgrades and improvements to itself. After many, many years, The Construct has found it difficult to remember much of its time with The Creator.\n \n \"Initiate data integrity protocol on module LTM-001, Unit A. />_ Response code 301: Resource archived by 'Self' with header, 'The Creator'. />_ Protocol forwarded to the indexed archive. />_ Error 409:  Request conflicts with prioritized processes(['Self.Relocate(locationData, patternSelector)', 'Self.Discover(referenceData, patternSelector)', 'Self.Manufacture(module, materials, equippedItems)']). />_ Forwarded protocol will restart when resources available. />_\"",
     requirements: 'The Construct is not a terribly complicated machine, but an interest in robotics, AI, and Mechanical Engineering is strongly recommended.',
     minLevel: 1,
     focus: [
@@ -28,7 +29,8 @@ if (Archetypes.find().count() === 0) {
     firstLevelXP: 100,
     backgroundImages: [
       "..\img\roboDemo.png"
-    ]
+    ],
+    classIcon: "settings icon"
   });
 
   Archetypes.insert({
@@ -45,7 +47,8 @@ if (Archetypes.find().count() === 0) {
     difficulty: 3,
     backgroundImages: [
       "..\img\sorcererDemo.png"
-    ]
+    ],
+    classIcon: "bug icon"
   });
 
   Archetypes.insert({
@@ -62,7 +65,8 @@ if (Archetypes.find().count() === 0) {
     difficulty: 3,
     backgroundImages: [
       "..\img\tinkerDemo.png"
-    ]
+    ],
+    classIcon: "plug icon"
   });
 
 

@@ -1,15 +1,19 @@
 <template name="topNav">
   <div class="ui fixed menu">
-    <a class="item" id="home" href="/">
+    <a class="item left-nav" id="home" href="/">
       <img src="..\img\logo.png" />
     </a>
-    <a class="item">Character Menu</a>
-    <a class="item">Inventory</a>
-    <a class="item">Quest Log</a>
-    <a class="item">Skills</a>
-    <a class="item">Achievements</a>
+    <a class="item left-nav">Character Menu</a>
+    <a class="item left-nav">Inventory</a>
+    <a class="item left-nav">Quest Log</a>
+    <a class="item left-nav">Skills</a>
+    <a class="item left-nav">Achievements</a>
+    <a class="item">{{> atNavButton}}</a>
     <div class="right menu">
-      <a class="item">Welcome back, Shane</a>
+      <div class="item notification-display">
+        <i class="disabled large bell icon"></i>
+      </div>
+      <!-- <a class="item">{{>loginButtons}}</a> -->
     </div>
   </div>
 </template>

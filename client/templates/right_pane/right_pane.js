@@ -3,9 +3,10 @@ Template.rightPane.helpers({
 
   },
   rendered: function() {
-    $('#xp-bar').progress({
+    template.$('#xp-bar').progress({
       percent: 47
     });
+
   },
   destroyed: function() {
 
