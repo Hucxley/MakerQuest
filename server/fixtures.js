@@ -40,8 +40,7 @@ if (Archetypes.find().count() === 0) {
     minLevel: 1,
     focus: [
       'Computer Science', 'Computer Programming', 'Software Engineering',
-      'Data Management Systems', 'Information Technology', 'Networks',
-      'Data Storage & Management'
+      'Data Management Systems', 'Information Technology', 'Networkimg'
     ],
     canAssist: true,
     difficulty: 3,
