@@ -16,9 +16,11 @@ if (Meteor.isClient) {
     console.log(charDetails);
   }
 
+  Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_ONLY'
+  })
 
 }
-
 
 
 
