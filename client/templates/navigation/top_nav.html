@@ -8,12 +8,17 @@
     <a class="item left-nav">Quest Log</a>
     <a class="item left-nav">Skills</a>
     <a class="item left-nav">Achievements</a>
+    {{#if loggedIn}}
+    <a class="item left-nav">Create Character</a>
+    {{/if}}
     <div class="right menu">
-      <div class="item notification-display">
-        <i class="disabled large bell icon"></i>
+      <div class="item">
+        <div class="notification-display">
+          <i class="disabled large bell icon"></i>
+        </div>
       </div>
       <div id="login-screen">
-        <a class="item">{{> loginButtons}}</a>
+        <a class="item">{{> loginButtons align='right'}}</a>
       </div>
     </div>
   </div>
