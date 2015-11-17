@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
   // counter starts at 0
   if (!!Meteor.user()) {
+    Session.set('currentViewState','activeUserView')
     if (Archetypes.find().count()) {
       var charDetails;
       var charSelector;
@@ -21,7 +22,11 @@ if (Meteor.isClient) {
       Session.set('userCharacter', charDetails);
       console.log(Session.get('userCharacter').className);
     }
+  }else{
+    Session.set('currentViewState','guestView');
   }
+
+
 
   Accounts.ui.config({
     passwordSignupFields: 'USERNAME_ONLY'

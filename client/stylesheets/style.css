@@ -10,6 +10,10 @@
   height: 40px;
 }
 
+.large-logo{
+  height: 146px !important;
+}
+
 .layout-window-container {
   margin-top: 55px;
 }
