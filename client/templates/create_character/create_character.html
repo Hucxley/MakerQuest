@@ -1,0 +1,25 @@
+<template name="createCharacter">
+  <form class="ui form">
+  <div class="field">
+    <label>Character Ham</label>
+    <input type="text" name="character-name" placeholder="Character's Name">
+  </div>
+  <div class="field">
+    <label>Character Type</label>
+    <select class="ui dropdown">
+      <option value="">Choose...</option>
+      <option value="0">Knight</option>
+      <option value="1">The Construct</option>
+      <option value="2">Summoner</option>
+      <option value="3">Tinkerer</option>
+    </select>
+  </div>
+  <div class="field">
+    <div class="ui checkbox">
+      <input type="checkbox" tabindex="0" class="hidden">
+      <label>I agree to the Terms and Conditions</label>
+    </div>
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>
+</template>
