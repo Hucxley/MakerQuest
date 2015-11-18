@@ -20,9 +20,13 @@ Template.topNav.events({
     event.preventDefault();
 
     var navSelect = event.target.innerText;
-    if(navSelect === 'Create Character'){
+    if (navSelect === 'Create Character') {
       Router.go('/createCharacter');
 
     }
+  },
+  "click .home-button": function(event, template) {
+    event.preventDefault();
+    Router.go('/');
   }
 });

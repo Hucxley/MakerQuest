@@ -23,7 +23,7 @@ Template.createCharacter.events({
     // });
     // Session.set('userCharacter',charDetails);
     console.log(event);
-    Router.go('playerWindow');
+    Router.go('/playerWindow');
 
   }
 });
