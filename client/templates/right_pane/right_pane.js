@@ -28,7 +28,10 @@ Template.rightPane.helpers({
     return Session.get('userCharacter').charName;
   },
   currentXP: function() {
-    return Session.get('userCharacter').currentXP;
+    $('#xp-bar').progress({
+      percent: Session.get('userCharacter').currentXP
+    });
+    //return Session.get('userCharacter').currentXP;
   }
 });
 
