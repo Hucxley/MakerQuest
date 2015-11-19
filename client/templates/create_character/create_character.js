@@ -3,7 +3,8 @@ Template.createCharacter.helpers({
 
   },
   rendered: function() {
-
+    $('.ui.dropdown')
+      .dropdown();
   },
   destroyed: function() {
 
@@ -13,17 +14,32 @@ Template.createCharacter.helpers({
 Template.createCharacter.events({
   "submit": function(event, template) {
     event.preventDefault();
-    // var archetypeList = Archetypes.find().fetch();
-    // var userId = Meteor.userId();
-    //
-    // charDetails = archetypeList[charSelector];
-    // UserDetails.insert({
-    //   userId: userId,
-    //   charDetails: charSelector
-    // });
-    // Session.set('userCharacter',charDetails);
-    console.log(event);
-    Router.go('/playerWindow');
+    var characterName = $('input[name="character-name"]').val();
+    var characterType = $('select[name="character-type"]').val();
+    var gender = $('select[name="gender"]').val();
+    var archetypeList = Archetypes.find().fetch();
+    var userId = Meteor.userId();
+    var charType = archetypeList[characterType];
+    charDetails = {
+      userId: userId,
+      username: Meteor.user().username,
+      charName: characterName,
+      gender: gender,
+      characterType: charType,
+      currentLevel: 1,
+      currentXP: 0,
+      faction: 'Human',
+      guild: 'Makers'
+    };
+    UserDetails.insert(charDetails);
+    Session.set('userCharacter', charDetails);
+    Router.go('/myCharacter.html');
 
+  },
+  "cancel": function(event, template) {
+    event.preventDefault();
+    $('input[name="character-name"]').clear();
+    $('select[name="character-type"]').clear();
+    $('select[name="gender"]').clear();
   }
 });

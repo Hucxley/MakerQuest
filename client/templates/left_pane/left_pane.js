@@ -8,8 +8,8 @@ Template.leftPane.helpers({
   destroyed: function() {
 
   },
-  getCharImage: function(){
-    return Session.get('userCharacter').backgroundImages[0];
+  getCharImage: function() {
+    return Session.get('userCharacter').characterType.backgroundImages[0];
   }
 });
 

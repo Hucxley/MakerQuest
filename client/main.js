@@ -1,44 +1,42 @@
 if (Meteor.isClient) {
-  // counter starts at 0
   if (!!Meteor.user()) {
-    Session.set('currentViewState','activeUserView')
     if (Archetypes.find().count()) {
       var charDetails;
       var charSelector;
       var userId;
-      if (!!Meteor.user()) {
-        userId = Meteor.userId();
-        charSelector = parseInt(prompt('Pick a number from 1 to 4')) - 1;
-      } else {
-        userId = 'Guest';
-        charSelector = Math.floor(Math.random() * 4);
+      var totalXP;
+      currentUser = Meteor.userId();
+      if (UserDetails.findOne({
+          userId: currentUser
+        }, {
+          fields: {
+            userId: 1
+          }
+        })) {
+        charDetails = UserDetails.findOne({
+          userId: currentUser
+        }, {
+          fields: {
+            _id: 0,
+            userId: 0
+          }
+        });
+        console.log('setting charDetails in main.js');
+        if (!Session.get('userCharacter')) {
+          Session.set('userCharacter', charDetails);
+        } else {
+          Router.go('/create-character.html');
+        }
       }
-      var archetypeList = Archetypes.find().fetch();
-      charDetails = archetypeList[charSelector];
-      UserDetails.insert({
-        userId: userId,
-        charDetails: charSelector
-      })
-      Session.set('userCharacter', charDetails);
-      console.log(Session.get('userCharacter').className);
     }
-  }else{
-    Session.set('currentViewState','guestView');
   }
-
-
-
-  Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_ONLY'
-  })
-
 }
 
 
 
 if (Meteor.isServer) {
   Meteor.startup(function() {
-    if (Archetypes.find().count() === 0) {
+    if (!Archetypes) {
       Archetypes.insert({
         className: 'Knight',
         description: "A Knight is a bold leader, devoted to his or her Order.",

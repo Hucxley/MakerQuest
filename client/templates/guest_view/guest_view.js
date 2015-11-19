@@ -15,8 +15,6 @@ Template.guestView.events({
   "click .about-button": function(event, template) {
     event.preventDefault();
     var clickTarget = event.target.innerText;
-    Session.set('currentViewState', 'aboutView');
-    console.log(clickTarget);
-    Router.go('/about')
+    Router.go('/about.html')
   }
 });

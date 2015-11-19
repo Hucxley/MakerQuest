@@ -1,0 +1,15 @@
+<template name="userNav">
+  <a class="item left-nav home-button" id="/">
+    <img src="..\img\logo.png" />
+  </a>
+  {{#if hasCharacter}}
+    <a class="item left-nav" id="myCharacter.html">Character Menu</a>
+  {{else}}
+    <a class="item left-nav" id="create-character.html" value="newChar">Create Character</a>
+  {{/if}}
+  <a class="item left-nav" id="inventory.html" value="myInventory">Inventory</a>
+  <a class="item left-nav" id="quests.html" value="myQuests">Quest Log</a>
+  <a class="item left-nav" id="skills.html" value="mySkills">Skills</a>
+  <a class="item left-nav" id="achievements.html" value="myAchievements">Achievements</a>
+
+</template>

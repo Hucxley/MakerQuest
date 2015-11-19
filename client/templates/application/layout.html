@@ -1,11 +1,13 @@
 <template name="layout">
-  <div class="container">
+  <div id="wrapper">
+  <div class="container" id="nav-container">
     {{> topNav}}
   </div>
-  <div id="main" class="layout-window-container">
+  <div id="content" class="layout-window-container">
     {{> yield}}
   </div>
-  <div>
+  <div id="footer">
     {{> footer}}
   </div>
+</div>
 </template>

@@ -4,28 +4,31 @@ Template.rightPane.helpers({
 
   },
   rendered: function() {
-    template.$('#xp-bar').progress({
-      percent: 47
-    });
 
   },
   destroyed: function() {
 
   },
-  classIcon: function(){
-    return Session.get('userCharacter').classIcon;
+  classIcon: function() {
+    return Session.get('userCharacter').characterType.classIcon;
   },
-  massiveClassIcon: function(){
-    return "massive" +Session.get('userCharacter').classIcon;
+  massiveClassIcon: function() {
+    return "massive" + Session.get('userCharacter').characterType.classIcon;
   },
-  className: function(){
-    return Session.get('userCharacter').className;
+  className: function() {
+    return Session.get('userCharacter').characterType.className;
   },
-  classSlogan: function(){
-    return Session.get('userCharacter').slogan;
+  classSlogan: function() {
+    return Session.get('userCharacter').characterType.slogan;
   },
-  qualities: function(){
-    return Session.get('userCharacter').qualities;
+  qualities: function() {
+    return Session.get('userCharacter').characterType.qualities;
+  },
+  characterName: function() {
+    return Session.get('userCharacter').charName;
+  },
+  currentXP: function() {
+    return Session.get('userCharacter').currentXP;
   }
 });
 
