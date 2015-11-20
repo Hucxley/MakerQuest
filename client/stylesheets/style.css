@@ -6,7 +6,7 @@ body {}
 }
 #nav-content {}
 #content {
-  padding-top: 5.5em;
+  padding-top: 6em;
   padding-bottom: 8em;
   /* Height of the footer element */
 }
@@ -26,6 +26,13 @@ body {}
   height: auto;
 }
 .large-logo {
-  height: 9.125em !important;
+  height: 9.5em !important;
 }
-.layout-window-container {}
+.layout-window-container {
+
+}
+.stuff-list{
+  padding: 0;
+  margin-left: 0;
+  list-style-type: none
+}

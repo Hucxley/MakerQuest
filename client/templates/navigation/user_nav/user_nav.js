@@ -9,13 +9,11 @@ Template.userNav.helpers({
 
   },
   hasCharacter: function() {
-    return UserDetails.findOne({
-      userId: Meteor.userId()
-    }, {
-      fields: {
-        userId: 0
-      }
-    });
+    if(Session.get('characterDetails').characterName){
+      return true
+    }else{
+      return false
+    }
   }
 });
 

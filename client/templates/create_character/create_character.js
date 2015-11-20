@@ -18,23 +18,42 @@ Template.createCharacter.events({
     var characterType = $('select[name="character-type"]').val();
     var gender = $('select[name="gender"]').val();
     var archetypeList = Archetypes.find().fetch();
-    var userId = Meteor.userId();
+    var currentUser = Meteor.userId();
     var charType = archetypeList[characterType];
-    charDetails = {
-      userId: userId,
-      username: Meteor.user().username,
-      charName: characterName,
-      gender: gender,
-      characterType: charType,
-      currentLevel: 1,
-      currentXP: 0,
-      faction: 'Human',
-      guild: 'Makers'
-    };
-    UserDetails.insert(charDetails);
-    Session.set('userCharacter', charDetails);
-    Router.go('/myCharacter.html');
-
+    var dateCreated = new Date();
+    if (UserDetails.findOne({
+        userId: currentUser
+      }, {
+        fields: {
+          characterName: 1
+        }
+      })) {
+      if (Session.get('userCharacter').userId == currentUser) {
+        Router.go('/myCharacter');
+      }
+    } else {
+      charDetails = {
+        userId: currentUser,
+        username: Meteor.user().username,
+        charName: characterName,
+        gender: gender,
+        characterType: charType,
+        currentLevel: 1,
+        currentXP: 0,
+        faction: 'Human',
+        guild: 'Makers',
+        characterCreated: dateCreated,
+      };
+      UserDetails.insert(charDetails);
+      var sanitizedDetails = UserDetails.findOne({
+        userId: currentUser
+      }, {
+        fields: {
+          _id: 0,
+        }
+      });
+      Session.set('userCharacter', sanitizedDetails);
+    }
   },
   "cancel": function(event, template) {
     event.preventDefault();

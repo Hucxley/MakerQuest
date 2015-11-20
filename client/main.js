@@ -10,23 +10,24 @@ if (Meteor.isClient) {
           userId: currentUser
         }, {
           fields: {
-            userId: 1
+            characterName: 1
           }
         })) {
+        //there is a UserDetails character record for this user, find it
         charDetails = UserDetails.findOne({
           userId: currentUser
         }, {
           fields: {
             _id: 0,
-            userId: 0
           }
         });
-        console.log('setting charDetails in main.js');
         if (!Session.get('userCharacter')) {
+          //there's no session, so start a session with user's character
           Session.set('userCharacter', charDetails);
-        } else {
-          Router.go('/create-character.html');
         }
+      } else {
+        //there's no character for this user, send them to make one
+        Router.go('/create-character.html');
       }
     }
   }
