@@ -9,14 +9,18 @@ Template.userNav.helpers({
 
   },
   hasCharacter: function() {
-    if(Session.get('characterDetails')){
-      if(Session.get('characterDetails').characterName){
-        return true
-      }else{
-        return false
+    var currentUser = Meteor.userId();
+    if (currentUser) {
+      if (!Session.equals('characterDetails', true)){
+        console.log('no session found in hasCharacter')
+        return false;
+      }else if (!Session.get('userCharacter').characterName) {
+        console.log('no character found in session in hasCharacter');
+        return false;
+      } else {
+        console.log('session and character found hasCharacter true');
+        return true;
       }
-    }else{
-      return false
     }
   }
 });

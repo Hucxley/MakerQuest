@@ -1,18 +1,24 @@
 if (Meteor.isClient) {
-  if (!!Meteor.user()) {
-    if (Archetypes.find().count()) {
+  console.log('client side running')
+    if (Meteor.userId()) {
+      console.log('meteor user logged in');
       var charDetails;
       var charSelector;
       var userId;
       var totalXP;
       var currentUser = Meteor.userId();
-      if (UserDetails.findOne({
+      console.log('currentUser: ' +currentUser);
+      console.log('looking for UserDetails');
+      var currRecordId = UserDetails.findOne({
           userId: currentUser
         }, {
           fields: {
-            characterName: 1
+            userId: 1
           }
-        })) {
+        });
+        console.log(currRecordId);
+        if(currRecordId == currentUser) {
+          console.log('userDetails record found for currentUser');
         //there is a UserDetails character record for this user, find it
         charDetails = UserDetails.findOne({
           userId: currentUser
@@ -21,25 +27,40 @@ if (Meteor.isClient) {
             _id: 0,
           }
         });
-        if (!Session.get('userCharacter').userId) {
-          //there's no session, so start a session with user's character
+        if (!Session.equals('userCharacter'),true) {
+          console.log("no session found, creating one")
+            //details exist, but no session created
           Session.set('userCharacter', charDetails);
+        } else if (!Session.get('userCharacter').userId !== currentUser) {
+          console.log("session user mismatch, changing to current user")
+            //session is for wrong user, make new one
+          Session.set('userCharacter', charDetails);
+        } else {
+          console.log("current user & session matched:")
+            //session found for currentUser with characterName
+          var sessionFound = Session.get('userCharacter');
+          console.log("session found: " + sessionFound);
+        }
+        if (!Session.get('userCharacter').characterName) {
+          Router.go('/create-character.html');
+        } else {
           Router.go('/myCharacter.html');
         }
-      } else {
-        //there's no character for this user, send them to make one
-        Router.go('/create-character.html');
+
       }
     }
-  }
-  Tracker.autorun(function (c) {
-  if (!Session.equals('characterDetails', true))
-    return;
 
-  c.stop();
-  alert("Oh no!");
-});
+
+
+    Tracker.autorun(function(c) {
+      if (!Session.equals('userCharacter', true))
+        return;
+
+      c.stop();
+      alert("Oh no!");
+    });
 }
+
 
 
 

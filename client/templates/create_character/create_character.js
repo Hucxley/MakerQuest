@@ -57,6 +57,7 @@ Template.createCharacter.events({
         }
       });
       Session.set('userCharacter', sanitizedDetails);
+      Router.go('/myCharacter.html');
     }
   },
   "cancel": function(event, template) {
