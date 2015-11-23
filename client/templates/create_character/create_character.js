@@ -14,12 +14,12 @@ Template.createCharacter.helpers({
 Template.createCharacter.events({
   "submit": function(event, template) {
     event.preventDefault();
-    var characterName = $('input[name="character-name"]').val();
-    var characterType = $('select[name="character-type"]').val();
+    var charName = $('input[name="character-name"]').val();
+    var selectorCharType = $('select[name="character-type"]').val();
     var gender = $('select[name="gender"]').val();
     var archetypeList = Archetypes.find().fetch();
     var currentUser = Meteor.userId();
-    var charType = archetypeList[characterType];
+    var charType = archetypeList[selectorCharType];
     var dateCreated = new Date();
     if (UserDetails.findOne({
         userId: currentUser
@@ -29,13 +29,14 @@ Template.createCharacter.events({
         }
       })) {
       if (Session.get('userCharacter').userId == currentUser) {
-        Router.go('/myCharacter');
+        Router.go('/myCharacter.html');
       }
     } else {
       charDetails = {
         userId: currentUser,
+        roleId: 100,
         username: Meteor.user().username,
-        charName: characterName,
+        characterName: charName,
         gender: gender,
         characterType: charType,
         currentLevel: 1,
@@ -43,6 +44,9 @@ Template.createCharacter.events({
         faction: 'Human',
         guild: 'Makers',
         characterCreated: dateCreated,
+        availableQuests: [{_id:''}],
+        currentQuests: [{_id:''}],
+        completedQuests: [{_id: ''}],
       };
       UserDetails.insert(charDetails);
       var sanitizedDetails = UserDetails.findOne({

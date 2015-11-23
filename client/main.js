@@ -5,7 +5,7 @@ if (Meteor.isClient) {
       var charSelector;
       var userId;
       var totalXP;
-      currentUser = Meteor.userId();
+      var currentUser = Meteor.userId();
       if (UserDetails.findOne({
           userId: currentUser
         }, {
@@ -21,9 +21,10 @@ if (Meteor.isClient) {
             _id: 0,
           }
         });
-        if (!Session.get('userCharacter')) {
+        if (!Session.get('userCharacter').userId) {
           //there's no session, so start a session with user's character
           Session.set('userCharacter', charDetails);
+          Router.go('/myCharacter.html');
         }
       } else {
         //there's no character for this user, send them to make one
@@ -31,6 +32,13 @@ if (Meteor.isClient) {
       }
     }
   }
+  Tracker.autorun(function (c) {
+  if (!Session.equals('characterDetails', true))
+    return;
+
+  c.stop();
+  alert("Oh no!");
+});
 }
 
 

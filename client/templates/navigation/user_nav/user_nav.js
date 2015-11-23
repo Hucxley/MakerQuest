@@ -9,8 +9,12 @@ Template.userNav.helpers({
 
   },
   hasCharacter: function() {
-    if(Session.get('characterDetails').characterName){
-      return true
+    if(Session.get('characterDetails')){
+      if(Session.get('characterDetails').characterName){
+        return true
+      }else{
+        return false
+      }
     }else{
       return false
     }

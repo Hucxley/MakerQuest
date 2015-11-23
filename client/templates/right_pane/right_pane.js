@@ -25,7 +25,7 @@ Template.rightPane.helpers({
     return Session.get('userCharacter').characterType.qualities;
   },
   characterName: function() {
-    return Session.get('userCharacter').charName;
+    return Session.get('userCharacter').characterName;
   },
   currentXP: function() {
     $('#xp-bar').progress({
