@@ -28,11 +28,18 @@ body {}
 .large-logo {
   height: 9.5em !important;
 }
-.layout-window-container {
-
-}
-.stuff-list{
+.layout-window-container {}
+.stuff-list {
   padding: 0;
   margin-left: 0;
   list-style-type: none
+}
+.loading-message {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+.sk-cube-grid.sk-spinner {
+  background-color: #A70000;
 }

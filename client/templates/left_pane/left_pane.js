@@ -9,7 +9,10 @@ Template.leftPane.helpers({
 
   },
   getCharImage: function() {
-    return Session.get('userCharacter').characterType.backgroundImages[0];
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterType.backgroundImages[
+        0];
+    }
   }
 });
 

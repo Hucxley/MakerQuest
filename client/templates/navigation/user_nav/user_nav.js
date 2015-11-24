@@ -11,10 +11,13 @@ Template.userNav.helpers({
   hasCharacter: function() {
     var currentUser = Meteor.userId();
     if (currentUser) {
-      if (!Session.equals('characterDetails', true)){
+      if (!Session.get('userCharacter')) {
+        var registeredUser = UserDetails.findOne({
+          id: 1
+        });
         console.log('no session found in hasCharacter')
         return false;
-      }else if (!Session.get('userCharacter').characterName) {
+      } else if (!Session.get('userCharacter').characterName) {
         console.log('no character found in session in hasCharacter');
         return false;
       } else {

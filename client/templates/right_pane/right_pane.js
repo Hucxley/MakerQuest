@@ -10,28 +10,42 @@ Template.rightPane.helpers({
 
   },
   classIcon: function() {
-    return Session.get('userCharacter').characterType.classIcon;
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterType.classIcon;
+    }
   },
   massiveClassIcon: function() {
-    return "massive" + Session.get('userCharacter').characterType.classIcon;
+    if (!!Session.get('userCharacter')) {
+      return "massive" + Session.get('userCharacter').characterType.classIcon;
+    }
   },
   className: function() {
-    return Session.get('userCharacter').characterType.className;
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterType.className;
+    }
   },
   classSlogan: function() {
-    return Session.get('userCharacter').characterType.slogan;
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterType.slogan;
+    }
   },
   qualities: function() {
-    return Session.get('userCharacter').characterType.qualities;
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterType.qualities;
+    }
   },
   characterName: function() {
-    return Session.get('userCharacter').characterName;
+    if (!!Session.get('userCharacter')) {
+      return Session.get('userCharacter').characterName;
+    }
   },
   currentXP: function() {
-    $('#xp-bar').progress({
-      percent: Session.get('userCharacter').currentXP
-    });
-    //return Session.get('userCharacter').currentXP;
+    if (!!Session.get('userCharacter')) {
+      $('#xp-bar').progress({
+        percent: Session.get('userCharacter').currentXP
+      });
+      //return Session.get('userCharacter').currentXP;
+    }
   }
 });
 

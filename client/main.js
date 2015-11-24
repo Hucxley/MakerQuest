@@ -1,66 +1,6 @@
 if (Meteor.isClient) {
-  console.log('client side running')
-    if (Meteor.userId()) {
-      console.log('meteor user logged in');
-      var charDetails;
-      var charSelector;
-      var userId;
-      var totalXP;
-      var currentUser = Meteor.userId();
-      console.log('currentUser: ' +currentUser);
-      console.log('looking for UserDetails');
-      var currRecordId = UserDetails.findOne({
-          userId: currentUser
-        }, {
-          fields: {
-            userId: 1
-          }
-        });
-        console.log(currRecordId);
-        if(currRecordId == currentUser) {
-          console.log('userDetails record found for currentUser');
-        //there is a UserDetails character record for this user, find it
-        charDetails = UserDetails.findOne({
-          userId: currentUser
-        }, {
-          fields: {
-            _id: 0,
-          }
-        });
-        if (!Session.equals('userCharacter'),true) {
-          console.log("no session found, creating one")
-            //details exist, but no session created
-          Session.set('userCharacter', charDetails);
-        } else if (!Session.get('userCharacter').userId !== currentUser) {
-          console.log("session user mismatch, changing to current user")
-            //session is for wrong user, make new one
-          Session.set('userCharacter', charDetails);
-        } else {
-          console.log("current user & session matched:")
-            //session found for currentUser with characterName
-          var sessionFound = Session.get('userCharacter');
-          console.log("session found: " + sessionFound);
-        }
-        if (!Session.get('userCharacter').characterName) {
-          Router.go('/create-character.html');
-        } else {
-          Router.go('/myCharacter.html');
-        }
 
-      }
-    }
-
-
-
-    Tracker.autorun(function(c) {
-      if (!Session.equals('userCharacter', true))
-        return;
-
-      c.stop();
-      alert("Oh no!");
-    });
 }
-
 
 
 
@@ -164,6 +104,129 @@ if (Meteor.isServer) {
         ],
         classIcon: "plug icon"
       });
+    };
+
+    if (!Quests) {
+      Quests.insert({
+        questTitle: 'A Lost Heirloom',
+        description: [
+          "The guard at the gates has lost the sword that his grandfather passed down to his father, and his father passed down to him.",
+          "Help replace the sword, and the guard will surely reward your efforts."
+        ],
+        questIcons: [{
+          newQuestIcon: 'yellow warning icon'
+        }, {
+          questLogIcon: 'lightning icon'
+        }, {
+          completeQuestIcon: 'yellow help icon'
+        }],
+        requires: [{
+          minLevel: 1
+        }, {
+          requiredGuild: ''
+        }, {
+          preQuests: ''
+        }, {
+          faction: '',
+          value: 0
+        }],
+        rewardXP: [{
+          characterType: 100
+        }, {
+          guild: 'Smiths',
+          value: 10
+        }, {
+          guild: 'Knights',
+          value: 15
+        }, {
+          badge: '3D printing',
+          value: 10
+        }],
+        otherRewards: [{
+          title: 'Friend of the Watch'
+        }, {
+          gp: 25
+        }],
+        submissionItem: 'One sword, of any design, printed at the maker bench.',
+        onCompleteText: [
+          'Thank you for replacing my sword.  I know it will never be the same as the family sword, but I can begin to make my own history with this one.  I will never forget your help.',
+          'Here, take these for your trouble!'
+        ],
+        assets: '',
+        references: '',
+        timeToFinish: [{
+          days: 0
+        }, {
+          hours: 1
+        }, {
+          minutes: 0
+        }, {
+          seconds: 0
+        }, {
+          ms: 0
+        }]
+      });
+
+      Quests.insert({
+        questTitle: 'Spiders in the Cellar',
+        description: [
+          "As you were walking in the alley behind the Inn, you heard a great deal of racket coming from within.  A woman shrieks loudly, and you rush in to find her standing on top of a table with a large pot in her hand.",
+          "'HELP!', she shouts to you.  There are SPIDERS in the cellar, and I can't get down there to get the meat for tonight's soup!"
+        ],
+        questIcons: [{
+          newQuestIcon: 'yellow warning icon'
+        }, {
+          questLogIcon: 'lightning icon'
+        }, {
+          completeQuestIcon: 'yellow help icon'
+        }],
+        requires: [{
+          minLevel: 1
+        }, {
+          requiredGuild: ''
+        }, {
+          preQuests: ''
+        }, {
+          faction: '',
+          value: 0
+        }],
+        rewardXP: [{
+          characterType: 100
+        }, {
+          guild: 'Traders',
+          value: 10
+        }, {
+          guild: 'Knights',
+          value: 15
+        }, {
+          badge: 'Scratch',
+          value: 10
+        }],
+        otherRewards: [{
+          title: 'The Debugger'
+        }, {
+          gp: 5
+        }],
+        submissionItem: 'Debug the scratch project so that it will compile and run.',
+        onCompleteText: [
+          'Thank you for replacing my sword.  I know it will never be the same as the family sword, but I can begin to make my own history with this one.  I will never forget your help.',
+          'Here, take these for your trouble!'
+        ],
+        assets: 'TBD Scratch project TODO: find link',
+        timeToFinish: [{
+          days: 0
+        }, {
+          hours: 1
+        }, {
+          minutes: 0
+        }, {
+          seconds: 0
+        }, {
+          ms: 0
+        }]
+      });
     }
   });
+
+
 }
