@@ -24,9 +24,9 @@ Tracker.autorun(function() {
         characterName: 1
       }
     });
-    if (userChar) {
+    if (Meteor.userId()) {
       var sanitizedDetails = UserDetails.findOne({
-        userId: currentUser
+        userId: Meteor.userId()
       });
       if (!Session.get('userCharacter')) {
         Session.set('userCharacter', sanitizedDetails);

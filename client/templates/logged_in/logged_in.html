@@ -1,0 +1,7 @@
+<template name="loggedInView">
+  {{#if hasCharacter}}
+    {{> playerView}}
+  {{else}}
+    {{> createCharacter}}
+  {{/if}}
+</template>
