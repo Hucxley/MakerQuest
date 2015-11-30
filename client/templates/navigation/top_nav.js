@@ -31,7 +31,11 @@ Template.topNav.events({
   },
   "click .login-link": function(event, template) {
     event.preventDefault();
-    Router.go('/login.html');
+    if (!Session.get('userDetails')) {
+      Router.go('/createCharacter.html')
+    } else {
+      Router.go('/myCharacter.html');
+    }
   }
 
 });

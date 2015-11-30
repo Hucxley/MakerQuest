@@ -1,31 +1,27 @@
 Template.loggedInView.helpers({
-  create: function() {
+  playerHasCharacter: function() {
+    console.log('playerHasCharacter running');
 
-  },
-  rendered: function() {
-
-  },
-  destroyed: function() {
-
-  },
-  hasCharacter: function() {
-    //TODO: set iron-router requires loggedIn restriction to prevent bypassing login to get to character creation
     if (Meteor.userId()) {
-      if (!Session.get('userCharacter')) {
-        var registeredUser = UserDetails.findOne({
-          id: 1
-        });
-        console.log('no session found in hasCharacter')
+      if (!UserDetails) {
+        console.log('no userDetails found in loggedInView')
         return false;
-      } else if (!Session.get('userCharacter').characterName) {
-        console.log('no character found in session in hasCharacter');
+      } else if (!UserDetails.findOne({
+          userId: Meteor.userId()
+        }, {
+          fields: {
+            characterName: 1
+          }
+        })) {
+        console.log('no character found in session in loggedInView');
         return false;
       } else {
+        Session.set('userCharacter', UserDetails.find().fetch())
         console.log('session and character found hasCharacter true');
         return true;
       }
     }
-  }
+  },
 });
 
 Template.loggedInView.events({

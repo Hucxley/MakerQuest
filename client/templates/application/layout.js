@@ -1,3 +1,26 @@
+Tracker.autorun(function() {
+  if (Meteor.userId()) {
+    var currentUser = Meteor.userId();
+    var userDetails = Meteor.subscribe('userDetails', currentUser);
+    if (userDetails.ready()) {
+      console.log('userDetails ready');
+    }
+    var archetypes = Meteor.subscribe('archetypes');
+    if (archetypes.ready()) {
+      console.log('archetypes ready');
+    }
+    /*UserDetails.findOne({
+          userId: Meteor.userId()
+        }, {
+          fields: {
+            characterName: 1
+          }
+        });*/
+  } else {
+    Router.go('/');
+  }
+});
+
 Template.layout.helpers({
   create: function() {
 
@@ -14,30 +37,7 @@ Template.layout.helpers({
   },
 });
 
-Tracker.autorun(function() {
-  if (Meteor.userId()) {
-    var currentUser = Meteor.userId();
-    var userChar = UserDetails.findOne({
-      userId: Meteor.userId()
-    }, {
-      fields: {
-        characterName: 1
-      }
-    });
-    if (Meteor.userId()) {
-      var sanitizedDetails = UserDetails.findOne({
-        userId: Meteor.userId()
-      });
-      if (!Session.get('userCharacter')) {
-        Session.set('userCharacter', sanitizedDetails);
-        Router.go('/myCharacter.html');
-      }
-    }
-  } else {
-    Session.set('userCharacter', undefined);
-    Router.go('/');
-  }
-});
+
 
 Template.layout.events({
 

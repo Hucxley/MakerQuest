@@ -1,6 +1,7 @@
 Template.createCharacter.helpers({
   create: function() {
 
+
   },
   rendered: function() {
     $('.ui.dropdown')
@@ -9,6 +10,7 @@ Template.createCharacter.helpers({
   destroyed: function() {
 
   },
+
 });
 
 Template.createCharacter.events({
@@ -32,7 +34,7 @@ Template.createCharacter.events({
         Router.go('/myCharacter.html');
       }
     } else {
-      charDetails = {
+      var charDetails = {
         userId: currentUser,
         roleId: 100,
         username: Meteor.user().username,
@@ -44,19 +46,18 @@ Template.createCharacter.events({
         faction: 'Human',
         guild: 'Makers',
         characterCreated: dateCreated,
-        availableQuests: [{_id:''}],
-        currentQuests: [{_id:''}],
-        completedQuests: [{_id: ''}],
+        availableQuests: [{
+          _id: ''
+        }],
+        currentQuests: [{
+          _id: ''
+        }],
+        completedQuests: [{
+          _id: ''
+        }],
       };
-      UserDetails.insert(charDetails);
-      var sanitizedDetails = UserDetails.findOne({
-        userId: currentUser
-      }, {
-        fields: {
-          _id: 0,
-        }
-      });
-      Session.set('userCharacter', sanitizedDetails);
+      Meteor.call('addUserCharacter', charDetails);
+      Session.set('userCharacter', charDetails);
       Router.go('/myCharacter.html');
     }
   },

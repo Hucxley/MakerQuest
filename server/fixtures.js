@@ -14,9 +14,7 @@ if (Archetypes.find().count() === 0) {
     canAssist: true,
     difficulty: 5,
     firstLevelXP: 1500,
-    backgroundImages: [
-      '..\\img\\knightDemo.png'
-    ],
+    backgroundImage: '../img/knightDemo.png',
     classIcon: "bookmark icon"
   });
 
@@ -41,9 +39,7 @@ if (Archetypes.find().count() === 0) {
     canAssist: true,
     difficulty: 4,
     firstLevelXP: 100,
-    backgroundImages: [
-      "..\\img\\roboDemo.png"
-    ],
+    backgroundImage: '../img/roboDemo.png',
     classIcon: "settings icon"
   });
 
@@ -64,9 +60,7 @@ if (Archetypes.find().count() === 0) {
     ],
     canAssist: true,
     difficulty: 3,
-    backgroundImages: [
-      "..\\img\\sorcererDemo.png"
-    ],
+    backgroundImage: '../img/sorcererDemo.png',
     classIcon: "bug icon"
   });
 
@@ -88,9 +82,7 @@ if (Archetypes.find().count() === 0) {
     ],
     canAssist: false,
     difficulty: 3,
-    backgroundImages: [
-      "..\\img\\tinkerDemo.png"
-    ],
+    backgroundImage: '../img/tinkerDemo.png',
     classIcon: "plug icon"
   });
 }

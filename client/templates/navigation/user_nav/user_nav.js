@@ -10,22 +10,27 @@ Template.userNav.helpers({
   },
   hasCharacter: function() {
     var currentUser = Meteor.userId();
-    if (currentUser) {
-      if (!Session.get('userCharacter')) {
-        var registeredUser = UserDetails.findOne({
-          id: 1
-        });
-        console.log('no session found in hasCharacter')
+    if (Meteor.userId()) {
+      if (!UserDetails) {
+        console.log('no userDetails found in loggedInView')
         return false;
-      } else if (!Session.get('userCharacter').characterName) {
-        console.log('no character found in session in hasCharacter');
+      } else if (!UserDetails.findOne({
+          userId: Meteor.userId()
+        }, {
+          fields: {
+            characterName: 1
+          }
+        })) {
+        console.log('no character found in session in loggedInView');
         return false;
       } else {
+        Session.set('userCharacter', UserDetails.find().fetch())
+        Router.go('/user.html');
         console.log('session and character found hasCharacter true');
         return true;
       }
     }
-  }
+  },
 });
 
 Template.userNav.events({

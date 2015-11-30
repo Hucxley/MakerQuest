@@ -1,7 +1,7 @@
 Template.loading.rendered = function() {
   if (!Session.get('loadingSplash')) {
     this.loading = window.pleaseWait({
-      logo: '..\\img\\largeLogo.png',
+      logo: 'largeLogo.png',
       backgroundColor: '#FFFFFF',
       loadingHtml: message + spinner
     });
