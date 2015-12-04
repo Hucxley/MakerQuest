@@ -1,19 +1,27 @@
-<template name="topNav">
-  <div class="ui fixed menu">
+<template name='topNav'>
+  <div class='ui fixed menu'>
     {{#if loggedIn}}
-      {{> userNav}}
+      {{#if isAdmin}}
+        {{> adminNav}}
+      {{else}}
+        {{#if isInstructor}}
+          {{> instructorNav}}
+        {{else}}
+          {{> userNav}}
+        {{/if}}
+      {{/if}}
     {{else}}
       {{> guestNav}}
     {{/if}}
-    <div class="right menu">
-      <div class="item">
-        <div class="notification-display">
-          <i class="large icon">
-            <i class="announcement icon"></i>
+    <div class='right menu'>
+      <div class='item'>
+        <div class='notification-display'>
+          <i class='large icon'>
+            <i class='announcement icon'></i>
           </i>
         </div>
       </div>
-      <div class="item" id="login-screen">
+      <div class='item' id='login-screen'>
         {{> atNavButton}}
       </div>
     </div>

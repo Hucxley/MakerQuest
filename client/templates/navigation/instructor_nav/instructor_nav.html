@@ -1,0 +1,10 @@
+<template name='instructorNav'>
+  {{#if verifiedInstructor}}
+    <a class='item left-nav home-button' id='/'>
+      <img src='..\img\logo.png' />
+    </a>
+    <a class='item left-nav' id='#' value=''>You have instructor Nav!</a>
+  {{else}}
+    {{> guestNav}}
+  {{/if}}
+</template>

@@ -1,11 +1,11 @@
 Meteor.users.find({
-  "status.online": true
+  'status.online': true
 }).observe({
   added: function(id) {
     // id just came online
     if (!!Session.get('userCharacter'))
       console.log(Session.get('userCharacter').characterName +
-        " logged in.");
+        ' logged in.');
   },
   removed: function(id) {
     // id just went offline

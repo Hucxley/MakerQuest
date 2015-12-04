@@ -9,6 +9,21 @@ Tracker.autorun(function() {
     if (archetypes.ready()) {
       console.log('archetypes ready');
     }
+
+    var pendingUsers = Meteor.subscribe('pendingUsers', currentUser);
+    if (pendingUsers.ready()) {
+      console.log('pendingUsers ready');
+    }
+    var roles = Meteor.subscribe('_roles');
+    if (roles.ready()) {
+      console.log('roles ready');
+    }
+
+    var verifyTool = Meteor.subscribe('verifyTool', Meteor.user());
+    if (verifyTool.ready()) {
+      console.log(AdminTools.find().fetch);
+      console.log('verifyTool ready')
+    };
     /*UserDetails.findOne({
           userId: Meteor.userId()
         }, {
@@ -17,6 +32,7 @@ Tracker.autorun(function() {
           }
         });*/
   } else {
+    console.log('dumbass went to layout.html')
     Router.go('/');
   }
 });

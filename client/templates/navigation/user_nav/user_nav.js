@@ -31,6 +31,9 @@ Template.userNav.helpers({
       }
     }
   },
+  isAdmin: function(){
+    var currentUser = Meteor.user();
+  }
 });
 
 Template.userNav.events({

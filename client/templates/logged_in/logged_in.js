@@ -16,7 +16,9 @@ Template.loggedInView.helpers({
         console.log('no character found in session in loggedInView');
         return false;
       } else {
-        Session.set('userCharacter', UserDetails.find().fetch())
+          Session.set('userCharacter', UserDetails.findOne({
+          userId: Meteor.userId()
+        }));
         console.log('session and character found hasCharacter true');
         return true;
       }

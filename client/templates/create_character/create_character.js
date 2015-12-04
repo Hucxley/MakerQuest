@@ -14,7 +14,7 @@ Template.createCharacter.helpers({
 });
 
 Template.createCharacter.events({
-  "submit": function(event, template) {
+  'submit': function(event, template) {
     event.preventDefault();
     var charName = $('input[name="character-name"]').val();
     var selectorCharType = $('select[name="character-type"]').val();
@@ -61,7 +61,7 @@ Template.createCharacter.events({
       Router.go('/myCharacter.html');
     }
   },
-  "cancel": function(event, template) {
+  'cancel': function(event, template) {
     event.preventDefault();
     $('input[name="character-name"]').clear();
     $('select[name="character-type"]').clear();
