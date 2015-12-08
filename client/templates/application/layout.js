@@ -21,7 +21,7 @@ Tracker.autorun(function() {
 
     var verifyTool = Meteor.subscribe('verifyTool', Meteor.user());
     if (verifyTool.ready()) {
-      console.log(AdminTools.find().fetch);
+      console.log(RoleManagement.find().fetch);
       console.log('verifyTool ready')
     };
     /*UserDetails.findOne({
@@ -50,6 +50,12 @@ Template.layout.helpers({
 
   updateSession: function() {
 
+  },
+  adminNoCode: function() {
+    if (Meteor.userId().profile.accessCode || Meteor.userId().profile.accessCode ===
+      'none') {
+      return true;
+    }
   },
 });
 

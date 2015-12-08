@@ -210,12 +210,12 @@ if (Quests.find().count() === 0) {
   });
 }
 
-if (AdminTools.find().count() === 0) {
-  AdminTools.insert({
+if (RoleManagement.find().count() === 0) {
+  RoleManagement.insert({
     verifyPrompt: '0425',
   });
 
-  AdminTools.insert({
+  RoleManagement.insert({
     verifyPrompt: 'verified'
   });
 }

@@ -17,7 +17,7 @@ Template.userNav.helpers({
       } else if (!UserDetails.findOne({
           userId: Meteor.userId()
         }, {
-          fields: {
+          field: {
             characterName: 1
           }
         })) {
@@ -31,8 +31,15 @@ Template.userNav.helpers({
       }
     }
   },
-  isAdmin: function(){
-    var currentUser = Meteor.user();
+  isAdmin: function() {
+    if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+      return true;
+    }
+  },
+  isInstructor: function() {
+    if (Roles.userIsInRole(Meteor.userId(), 'instructor')) {
+      return true;
+    }
   }
 });
 

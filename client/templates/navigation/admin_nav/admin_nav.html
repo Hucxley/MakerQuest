@@ -1,9 +1,9 @@
 <template name='adminNav'>
-  {{#if verifiedAdmin}}
+  {{#if isAdmin }}
   <a class='item left-nav home-button' id='/'>
     <img src='..\img\logo.png' />
   </a>
-  <a class='item left-nav' id='#' value='about'>You have admin nav!</a>
+  <a class='item left-nav' id='/newItem.html' value='about'>Create New Item</a>
   {{else}}
     {{> guestNav}}
   {{/if}}

@@ -42,14 +42,16 @@ Meteor.methods({
     var targetUserId = targetUser._id;
     if (targetUser.profile.roleSelected === 'admin' && targetUser.profile
       .isAuthorized) {
-      Roles.addUsersToRoles(targetUserId, 'admin', Roles.GLOBAL_GROUP);
+      Roles.addUsersToRoles(targetUserId, 'admin');
     } else if (targetUser.profile.roleSelected === 'instructor') {
-      Roles.addUsersToRoles(targetUserId, 'instructor', 'instructors');
+      Roles.addUsersToRoles(targetUserId, 'instructor');
     } else if (targetUser.profile.roleSelected === 'student') {
-      Roles.addUsersToRoles(targetUserId, 'student', 'members');
+      Roles.addUsersToRoles(targetUserId, 'student');
     } else {
-      Roles.addUsersToRoles(targetUserId, 'rolesPending',
-        'guests');
+      Roles.addUsersToRoles(targetUserId, 'rolesPending');
     }
   },
+  addItemToDatabase: function(user, params) {
+
+  }
 });

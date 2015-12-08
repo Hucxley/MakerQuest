@@ -25,8 +25,8 @@ Meteor.publish('pendingUsers', function(userId) {
   console.log(currentUserRole);
 });
 
-Meteor.publish('adminTools', function(user) {
-  return AdminTools.findOne({
+Meteor.publish('instructorView', function(user) {
+  return RoleManagement.findOne({
     verifyPrompt: user.profile.accessCode
   }, {
     fields: {
@@ -55,7 +55,7 @@ Meteor.publish('verifyTool', function(user) {
     reviewDate: (new Date()).toString(),
   };
   console.log(userAccessCode);
-  if (AdminTools.findOne({
+  if (RoleManagement.findOne({
       verifyPrompt: userAccessCode
     })) {
     Meteor.call('verifyResults', confirmedOptions);
