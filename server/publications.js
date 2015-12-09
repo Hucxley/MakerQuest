@@ -13,6 +13,10 @@ Meteor.publish('quests', function() {
   return Quests.find();
 });
 
+Meteor.publish('itemdb', function(userId, options) {
+  return Items.find();
+})
+
 Meteor.publish('pendingUsers', function(userId) {
   var currentUser = userId;
   var currentUserRole = UserDetails.find({
@@ -23,6 +27,11 @@ Meteor.publish('pendingUsers', function(userId) {
     }
   })
   console.log(currentUserRole);
+});
+
+Meteor.publish('enums', function(userId) {
+  var currentUser = userId;
+  return Enums.find();
 });
 
 Meteor.publish('instructorView', function(user) {

@@ -56,9 +56,11 @@ Template.createCharacter.events({
           _id: ''
         }],
       };
-      Meteor.call('addUserCharacter', charDetails);
-      Session.set('userCharacter', charDetails);
-      Router.go('/myCharacter.html');
+      var newCharCreated = Meteor.call('addUserCharacter', charDetails);
+      if (newCharCreated) {
+        Session.set('userCharacter', charDetails);
+        Router.go('/myCharacter.html');
+      }
     }
   },
   'cancel': function(event, template) {

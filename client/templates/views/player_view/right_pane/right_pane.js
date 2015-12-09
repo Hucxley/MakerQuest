@@ -4,6 +4,15 @@ Template.rightPane.helpers({
 
   },
   rendered: function() {
+    $('#xp-bar').progress({
+      percent: UserDetails.findOne({
+        userId: Meteor.userId()
+      }, {
+        fields: {
+          currentXP: 1
+        }
+      })
+    });
 
   },
   destroyed: function() {
@@ -43,7 +52,11 @@ Template.rightPane.helpers({
     $('#xp-bar').progress({
       percent: UserDetails.findOne({
         userId: Meteor.userId()
-      }).currentXP
+      }, {
+        fields: {
+          currentXP: 1
+        }
+      })
     });
     //return Session.get('userCharacter').currentXP;
   },

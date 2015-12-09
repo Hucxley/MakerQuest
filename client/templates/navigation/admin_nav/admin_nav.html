@@ -1,9 +1,10 @@
 <template name='adminNav'>
   {{#if isAdmin }}
-  <a class='item left-nav home-button' id='/'>
+  <a class='heater item left-nav home-button' id='/'>
     <img src='..\img\logo.png' />
   </a>
-  <a class='item left-nav' id='newItem.html' value='about'>Create New Item</a>
+  <a class='item left-nav' id='newCustomItem.html' value='newCustomItem'>Create Custom Item</a>
+  <a class='item left-nav' id='randomItemsCreator.html' value='randomItemsCreator'>Make Random Items</a>
   {{else}}
     {{> guestNav}}
   {{/if}}

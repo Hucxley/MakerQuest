@@ -1,0 +1,78 @@
+<template name='newItemView'>
+  <div class='ui container'>
+    <h1 class='ui header'>Create New Item</h1>
+    <form class='ui equal width form'>
+      <div class='fields'>
+        <div class='field'>
+          <label>Item Level</label>
+          <input type='number' max='100' min='0' placeholder='Enter iLvl from 0-100' name='iLvl'>
+        </div>
+        <div class='field'>
+          <label>Item Quality</label>
+          <select class='ui dropdown' name='item-quality'>
+            <option value='ITEM_QUALITY_JUNK'>
+              Junk
+            </option>
+            <option value='ITEM_QUALITY_COMMON'>
+              Common
+            </option>
+            <option value='ITEM_QUALITY_HEIRLOOM'>
+              Heirloom
+            </option>
+            <option value='ITEM_QUALITY_MAGIC'>
+              Magic
+            </option>
+            <option value='ITEM_QUALITY_RARE'>
+              Rare
+            </option>
+            <option value='ITEM_QUALITY_LEGENDARY'>
+              Legendary
+            </option>
+            <option value='ITEM_QUALITY_UNIQUE'>
+              Unique
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class='field item-type-selector'>
+        <label>Item Type</label>
+        <select class='ui dropdown' name='item-type'>
+          <option value='0'>Random</option>
+          <option value='1'>Book</option>
+        </select>
+      </div>
+      <div class='fields'>
+        <div class='field item-prefix-selector' name='item-prefix'>
+          {{> itemPrefixSelector}}
+        </div>
+        <div class='field item-suffix-selector' name='item-suffix'>
+          {{> itemSuffixSelector}}
+        </div>
+      </div>
+      <div class='field'>
+        <label>Item Description</label>
+        <textarea rows="5" name='item-description-text'></textarea>
+      </div>
+      <div class='field'>
+        <label>Item Icon Name</label>
+        <input type='text' autocomplete='off' placeholder='Leave blank to use random icon of item type' disabled='' name='item-icon-name'>
+      </div>
+      <div class='fields'>
+        <div class='field'>
+          <label>Number of Drops</label>
+          <input type='number' min='1' placeholder='Bottom limit of drop rate (Num Drops / Drop Frequency = drop rate)' name='item-drop-lower-limit'>
+        </div>
+        <div class='field'>
+          <label>Drop Frequency</label>
+          <input type='number' min='1' placeholder='The further apart Number of Drops and Frequency are, the more rare a drop is.' name='item-drop-frequency'>
+        </div>
+      </div>
+      <div class='ui large buttons'>
+        <button class='ui primary button custom-item-button' type='submit'>
+          Create It!
+        </button>
+      </div>
+
+    </form>
+  </div>
+</template>

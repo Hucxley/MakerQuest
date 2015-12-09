@@ -1,14 +1,14 @@
 <template name='userNav'>
-  <a class='item left-nav home-button' id='/'>
-    <img src='..\img\logo.png' />
-  </a>
   {{#if isAdmin}}
-    <a class='item left-nav' id='newItem.html' value='about'>Create New Item</a>
+    {{> adminNav}}
   {{else}}
-    {{#if isInstructor}}
-      <a class='item left-nav' id='#' value=''>You have instructor Nav!</a>
+    {{#if isInstructor }}
+      {{> instructorNav }}
     {{else}}
       {{#if hasCharacter}}
+      <a class='header item left-nav home-button' id='/'>
+        <img src='..\img\logo.png' />
+      </a>
         <a class='item left-nav' id='myCharacter.html'>Character Menu</a>
         <a class='item left-nav' id='inventory.html' value='myInventory'>Inventory</a>
         <a class='item left-nav' id='guilds.html' value='myQuests'>Guild Halls</a>
@@ -16,6 +16,9 @@
         <a class='item left-nav' id='skills.html' value='mySkills'>Skills</a>
         <a class='item left-nav' id='achievements.html' value='myAchievements'>Achievements</a>
       {{else}}
+      <a class='header item left-nav home-button' id='/'>
+        <img src='..\img\logo.png' />
+      </a>
         <a class='item left-nav' id='createCharacter.html' value='newChar'>Create Character</a>
       {{/if}}
     {{/if}}

@@ -23,21 +23,8 @@ Template.topNav.helpers({
     };
   },
   isAdmin: function() {
-
-    console.log('top nav user is in role admin');
-    console.log(Roles.userIsInRole(Meteor.userId(), 'admin'));
-    if (!Meteor.userId()) {
-      return false;
-    } else if (Roles.userIsInRole(Meteor.userId(), 'rolesPending')) {
-      if (Meteor.users.profile.role === 'admin' && Meteor.users.profile
-        .isAuthorized) {
-        Meteor.call('assignUserRoles', Meteor.userId(), 'admin');
-        console.log(Meteor.user)
-      } else if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
-        return true;
-      } else {
-        return false;
-      }
+    if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+      return true;
     }
   },
   isInstructor: function() {
