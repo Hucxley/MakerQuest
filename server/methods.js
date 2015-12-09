@@ -58,28 +58,29 @@ Meteor.methods({
   createRandomItems: function(user, params) {
     var random = Math.random();
     var currentUserId = user._id;
-    var ENUMS = Enums.find().fetch();
-    console.log(ENUMS);
-    if (Roles.userIsInRole(currentUserId, 'admin')) {
-      console.log('loop count' + params);
-    }
-    if (Roles.userIsInRole(currentUserId, 'admin')) {
-      var qualitySelector = Math.randomInt(1, (ENUMS.Item_Enums.quality.count() -
-        1));
-      var typeSelector = Math.randomInt(1, ENUMS.Item_Enums.type.count());
-      var prefixSelector = Math.randomInt(1, ENUMS.Item_Enums.prefixes.count());
-      var suffixSelector = Math.randomInt(1, ENUMS.Item_Enums.suffixes.count());
-      var selectors = [{
-        quality: qualitySelector
-      }, {
-        type: typeSelector
-      }, {
-        prefix: prefixSelector
-      }, {
-        suffix: suffixSelector
-      }];
-      console.log(selectors);
-    }
+    var itemEnums = ItemEnums.find().fetch();
+    return itemEnums;
+    // console.log(itemEnums.quality.length)
+    // if (Roles.userIsInRole(currentUserId, 'admin')) {
+    //   console.log('loop count' + params);
+    // }
+    // if (Roles.userIsInRole(currentUserId, 'admin')) {
+    //   var qualitySelector = Math.randomInt(1, (itemEnums.quality.length -
+    //     1));
+    //   var typeSelector = Math.randomInt(1, itemEnums.type.length);
+    //   var prefixSelector = Math.randomInt(1, itemEnums.prefixes.length);
+    //   var suffixSelector = Math.randomInt(1, itemEnums.suffixes.length);
+    //   var selectors = [{
+    //     quality: qualitySelector
+    //   }, {
+    //     type: typeSelector
+    //   }, {
+    //     prefix: prefixSelector
+    //   }, {
+    //     suffix: suffixSelector
+    //   }];
+    //   console.log(selectors);
+    // }
   },
   //NEXT METHOD GOES HERE
 

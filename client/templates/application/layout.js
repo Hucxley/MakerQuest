@@ -10,6 +10,26 @@ Tracker.autorun(function() {
       console.log('archetypes ready');
     }
 
+    var itemPrefixes = Meteor.subscribe('itemPrefixes');
+    if(itemPrefixes.ready()){
+      console.log('itemPrefixes ready');
+    }
+
+    var itemSuffixes = Meteor.subscribe('itemSuffixes');
+    if(itemSuffixes.ready()){
+      console.log('itemSuffixes ready');
+    }
+
+    var itemQuality = Meteor.subscribe('itemQuality');
+    if(itemQuality.ready()){
+      console.log('itemQuality ready');
+    }
+
+    var itemDatabase = Meteor.subscribe('itemDatabase');
+    if(itemDatabase.ready()){
+      console.log('itemDatabase ready');
+    }
+
     var pendingUsers = Meteor.subscribe('pendingUsers', currentUser);
     if (pendingUsers.ready()) {
       console.log('pendingUsers ready');

@@ -13,9 +13,13 @@ Meteor.publish('quests', function() {
   return Quests.find();
 });
 
-Meteor.publish('itemdb', function(userId, options) {
-  return Items.find();
-})
+Meteor.publish('itemDatabase', function(userId, options) {
+  return ItemDatabase.find();
+});
+
+Meteor.publish('itemQuality', function(userId, options) {
+  return ItemQuality.find();
+});
 
 Meteor.publish('pendingUsers', function(userId) {
   var currentUser = userId;
@@ -29,9 +33,14 @@ Meteor.publish('pendingUsers', function(userId) {
   console.log(currentUserRole);
 });
 
-Meteor.publish('enums', function(userId) {
+Meteor.publish('itemPrefixes', function(userId) {
   var currentUser = userId;
-  return Enums.find();
+  return ItemPrefixes.find();
+});
+
+Meteor.publish('itemSuffixes', function(userId) {
+  var currentUser = userId;
+  return ItemSuffixes.find();
 });
 
 Meteor.publish('instructorView', function(user) {
