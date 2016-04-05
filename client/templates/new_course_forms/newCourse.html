@@ -1,0 +1,163 @@
+<template name="newCourse">
+    <div class='ui container'>
+        <h1 class='ui header'>Add New Course</h1>
+        <form class="ui equal width form">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="courseTitle" placeholder="Enter the Course/Series/Class Title...">
+            </div>
+            <h4 class="ui dividing header">Start Date</h4>
+            <div class="three fields">
+                <div class="field">
+                    <label>Month</label>
+                    <input type="text" name="startMonth" placeholder="MM" />
+                </div>
+                <div class="field">
+                    <label>Day</label>
+                    <input type="text" name="startDay" placeholder="DD" />
+                </div>
+                <div class="field">
+                    <label>Year</label>
+                    <input type="text" name="startYear" placeholder="YY" />
+                </div>
+            </div>
+            <h4 class="ui dividing header">End Date</h4>
+            <div class="three fields">
+                <div class="field">
+                    <label>Month</label>
+                    <input type="text" name="endMonth" placeholder="MM" />
+                </div>
+                <div class="field">
+                    <label>Day</label>
+                    <input type="text" name="endDay" placeholder="DD" />
+                </div>
+                <div class="field">
+                    <label>Year</label>
+                    <input type="text" name="endYear" placeholder="YY" />
+                </div>
+            </div>
+            <h4 class="ui dividing header">Location Info</h4>
+            <div class="field">
+                <label>Site/Host Name</label>
+                <input type="text" name="hostName" placeholder="Name of Event(s) Host (ie BlahBlah Elementary School)" />
+            </div>
+            <div class="four fields">
+                <div class="three wide field">
+                    <label>Street Number</label>
+                    <input type="text" name="streetNumber" placeholder="1220" />
+                </div>
+                <div class="two wide field">
+                    <label>Street Direction</label>
+                    <input type="text" name="streetDirection" placeholder="N. or North" />
+                </div>
+                <div class="eight wide field">
+                    <label>Street Name</label>
+                    <input type="text" name="streetName" placeholder="Example St." />
+                </div>
+                <div class="three wide field">
+                    <label>Apt/Suite/No.</label>
+                    <input type="text" name="streetSuite" placeholder="304, A-2" />
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="eight wide field">
+                    <label>City</label>
+                    <input type="text" name="city" placeholder="Yourtown" />
+                </div>
+                <div class="four wide field">
+                    <label>State</label>
+                    <input type="text" name="state" placeholder="NY" />
+                </div>
+                <div class="four wide field">
+                    <label>Zip</label>
+                    <input type="text" name="zipCode" placeholder="00000" />
+                </div>
+            </div>
+            <div class="six wide field">
+              <div class="two fields">
+                <div class="three wide field">
+                  <label>Start Time</label>
+                  <input type="text" name="startTime" placeholder="5:30" />
+                </div>
+                <div class="three wide field">
+                  <label>AM/PM</label>
+                  <select class="ui dropdown" name="start-time-am-pm-dropdown">
+                    <option value="am">PM</option>
+                    <option value="pm">AM</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="six wide field">
+              <div class="two fields">
+              <div class="three wide field">
+                <label>End Time</label>
+                <input type="text" name="endTime" placeholder="7:00" />
+              </div>
+              <div class="three wide field">
+                <label>AM/PM</label>
+                <select class="ui dropdown" name="end-time-am-pm-dropdown">
+                  <option value="am">PM</option>
+                  <option value="pm">AM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <h4 class="ui dividing header">Detailed Course Information</h4>
+          <div class="fields">
+            <div class="two wide field">
+              <label>Target Grade</label>
+              <select type="text" name="target-grade-dropdown">
+              <option value="0">Kindergarten</option>
+              <option value="1">1st</option>
+              <option value="2">2nd</option>
+              <option value="3">3rd</option>
+              <option value="4">4th</option>
+              <option value="5">5th</option>
+              <option value="6">6th</option>
+              <option value="7">7th</option>
+              <option value="8">8th</option>
+              <option value="9">9th</option>
+              <option value="10">10th</option>
+              <option value="11">11th</option>
+              <option value="12">12th</option>
+            </select>
+            </div>
+            <div class="two wide field">
+              <label>Minimum Students</label>
+              <input type="text" name="minStudents" placeholder="1" />
+            </div>
+            <div class="two wide field">
+              <label>Maximum Students</label>
+              <input type="text" name="maxStudents" placeholder="15" />
+            </div>
+            <div class="ten wide field">
+              <label>Instructor</label>
+              <input type="text" name="assignedInstructor" placeholder="Jane Smith" />
+            </div>
+          </div>
+          <h4 class="ui dividing header">Series Info</h4>
+          <div class="fields">
+            <div class="ten wide field">
+              <label>Series Name</label>
+              <input type="text" name="courseSeriesName" placeholder="Studying Stuff" />
+            </div>
+            <div class="three wide field">
+              <label>Course #</label>
+              <input type="text" name="course-number-in-series" placeholder="2" />
+            </div>
+            <span> of </span>
+            <div class="three wide field">
+              <label>Total in Series</label>
+              <input type="text" name="total-courses-in-series" />
+            </div>
+        </div>
+          <div class="ui primary button btn-new-course-submit" tabindex="0">Create Course</div>
+          <br />
+        </form>
+        <p>
+          &nbsp;
+        </p>
+    </div>
+
+</template>
