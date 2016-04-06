@@ -37,6 +37,9 @@ Meteor.publish('itemPrefixes', function(userId) {
   var currentUser = userId;
   return ItemPrefixes.find();
 });
+Meteor.publish('courses', function() {
+  return Courses.find();
+});
 
 Meteor.publish('itemSuffixes', function(userId) {
   var currentUser = userId;

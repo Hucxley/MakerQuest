@@ -6,6 +6,19 @@ Meteor.methods({
     UserDetails.insert(charDetails);
     return true;
   },
+
+  addNewCourse: function(courseObj) {
+    check(courseObj, Object);
+    var currentUser = Meteor.userId();
+    var newCourse;
+    var isAdmin = Roles.userIsInRole(currentUser, ['admin']);
+    if (isAdmin) {
+      newCourse = Courses.insert({
+        'info': courseObj
+      });
+    }
+    return newCourse;
+  },
   verifyResults: function(update) {
     check(update, {
       id: String,

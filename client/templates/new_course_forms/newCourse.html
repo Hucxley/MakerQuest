@@ -1,40 +1,10 @@
 <template name="newCourse">
     <div class='ui container'>
         <h1 class='ui header'>Add New Course</h1>
-        <form class="ui equal width form">
+        <form class="ui equal width form" id='new-course-form'>
             <div class="field">
                 <label>Title</label>
                 <input type="text" name="courseTitle" placeholder="Enter the Course/Series/Class Title...">
-            </div>
-            <h4 class="ui dividing header">Start Date</h4>
-            <div class="three fields">
-                <div class="field">
-                    <label>Month</label>
-                    <input type="text" name="startMonth" placeholder="MM" />
-                </div>
-                <div class="field">
-                    <label>Day</label>
-                    <input type="text" name="startDay" placeholder="DD" />
-                </div>
-                <div class="field">
-                    <label>Year</label>
-                    <input type="text" name="startYear" placeholder="YY" />
-                </div>
-            </div>
-            <h4 class="ui dividing header">End Date</h4>
-            <div class="three fields">
-                <div class="field">
-                    <label>Month</label>
-                    <input type="text" name="endMonth" placeholder="MM" />
-                </div>
-                <div class="field">
-                    <label>Day</label>
-                    <input type="text" name="endDay" placeholder="DD" />
-                </div>
-                <div class="field">
-                    <label>Year</label>
-                    <input type="text" name="endYear" placeholder="YY" />
-                </div>
             </div>
             <h4 class="ui dividing header">Location Info</h4>
             <div class="field">
@@ -73,41 +43,54 @@
                     <input type="text" name="zipCode" placeholder="00000" />
                 </div>
             </div>
-            <div class="six wide field">
+            <h4 class="ui dividing header">Session Information</h4>
+            <div class="four wide field">
               <div class="two fields">
-                <div class="three wide field">
+                  <div class="field">
+                      <label>Start Date</label>
+                      <input type="text" name="startDate" placeholder="MM/DD/YY" />
+                  </div>
+                  <div class="field">
+                      <label>End Date</label>
+                      <input type="text" name="endDate" placeholder="MM/DD/YY" />
+                  </div>
+              </div>
+            </div>
+            <div class="four wide field">
+              <div class="two fields">
+                <div class="field">
                   <label>Start Time</label>
                   <input type="text" name="startTime" placeholder="5:30" />
                 </div>
-                <div class="three wide field">
+                <div class="field">
                   <label>AM/PM</label>
-                  <select class="ui dropdown" name="start-time-am-pm-dropdown">
-                    <option value="am">PM</option>
-                    <option value="pm">AM</option>
+                  <select class="ui dropdown" name="startTimeAmPm">
+                    <option value="pm">PM</option>
+                    <option value="am">AM</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div class="six wide field">
+            <div class="four wide field">
               <div class="two fields">
-              <div class="three wide field">
-                <label>End Time</label>
-                <input type="text" name="endTime" placeholder="7:00" />
-              </div>
-              <div class="three wide field">
-                <label>AM/PM</label>
-                <select class="ui dropdown" name="end-time-am-pm-dropdown">
-                  <option value="am">PM</option>
-                  <option value="pm">AM</option>
-                </select>
+                <div class="field">
+                  <label>End Time</label>
+                  <input type="text" name="endTime" placeholder="5:30" />
+                </div>
+                <div class="field">
+                  <label>AM/PM</label>
+                  <select class="ui dropdown" name="startTimeAmPm">
+                    <option value="pm">PM</option>
+                    <option value="am">AM</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
           <h4 class="ui dividing header">Detailed Course Information</h4>
           <div class="fields">
             <div class="two wide field">
               <label>Target Grade</label>
-              <select type="text" name="target-grade-dropdown">
+              <select type="text" name="targetGrade">
               <option value="0">Kindergarten</option>
               <option value="1">1st</option>
               <option value="2">2nd</option>
@@ -144,15 +127,15 @@
             </div>
             <div class="three wide field">
               <label>Course #</label>
-              <input type="text" name="course-number-in-series" placeholder="2" />
+              <input type="text" name="courseNumberInSeries" placeholder="2" />
             </div>
             <span> of </span>
             <div class="three wide field">
               <label>Total in Series</label>
-              <input type="text" name="total-courses-in-series" />
+              <input type="text" name="totalCoursesInSeries" placeholder="5" />
             </div>
         </div>
-          <div class="ui primary button btn-new-course-submit" tabindex="0">Create Course</div>
+          <div class="ui primary button submit btn-new-course-submit" tabindex="0">Create Course</div>
           <br />
         </form>
         <p>
