@@ -1,7 +1,5 @@
 Template.newCourse.helpers({
-  rendered: function() {
 
-  }
 });
 
 Template.newCourse.events({

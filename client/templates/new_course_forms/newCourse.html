@@ -25,7 +25,7 @@
                     <input type="text" name="streetName" placeholder="Example St." />
                 </div>
                 <div class="three wide field">
-                    <label>Apt/Suite/No.</label>
+                    <label>Bldg/Suite/No.</label>
                     <input type="text" name="streetSuite" placeholder="304, A-2" />
                 </div>
             </div>
@@ -44,6 +44,47 @@
                 </div>
             </div>
             <h4 class="ui dividing header">Session Information</h4>
+            <div class="sixteen wide field">
+              <label>Meeting Days</label>
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Monday</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Tuesday</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Wednesday</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Thursday</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Friday</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="meetingDays" />
+                    <label>Saturday</label>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="four wide field">
               <div class="two fields">
                   <div class="field">
@@ -87,23 +128,15 @@
               </div>
             </div>
           <h4 class="ui dividing header">Detailed Course Information</h4>
-          <div class="fields">
+          <div class="four fields">
             <div class="two wide field">
               <label>Target Grade</label>
               <select type="text" name="targetGrade">
               <option value="0">Kindergarten</option>
-              <option value="1">1st</option>
-              <option value="2">2nd</option>
-              <option value="3">3rd</option>
-              <option value="4">4th</option>
-              <option value="5">5th</option>
-              <option value="6">6th</option>
-              <option value="7">7th</option>
-              <option value="8">8th</option>
-              <option value="9">9th</option>
-              <option value="10">10th</option>
-              <option value="11">11th</option>
-              <option value="12">12th</option>
+              <option value="1">1st-3rd</option>
+              <option value="2">4th-6th</option>
+              <option value="3">7th-8th</option>
+              <option value="4">9th-12th</option>
             </select>
             </div>
             <div class="two wide field">
@@ -115,9 +148,13 @@
               <input type="text" name="maxStudents" placeholder="15" />
             </div>
             <div class="ten wide field">
-              <label>Instructor</label>
+              <label>Maker Coach</label>
               <input type="text" name="assignedInstructor" placeholder="Jane Smith" />
             </div>
+          </div>
+          <div class="field">
+            <label>Course Description</label>
+            <textarea rows="3" name="courseDescription" placeholder="Describe the course..."></textarea>
           </div>
           <h4 class="ui dividing header">Series Info</h4>
           <div class="fields">
@@ -134,7 +171,11 @@
               <label>Total in Series</label>
               <input type="text" name="totalCoursesInSeries" placeholder="5" />
             </div>
-        </div>
+          </div>
+          <div class="field">
+            <label>Series Description</label>
+            <textarea rows="4" name="seriesDescription" placeholder="Describe the series of courses..."></textarea>
+          </div>
           <div class="ui primary button submit btn-new-course-submit" tabindex="0">Create Course</div>
           <br />
         </form>
